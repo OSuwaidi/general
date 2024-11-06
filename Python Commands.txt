@@ -1,0 +1,142 @@
+* List of useful Python commands:
+
+- help(__) : Get info about whatever is in (__)
+
+- dir(__)  : Get all the available methods that are embedded in (__)
+
+- "txt {} txt".format(__) : Inserts whatever is in (__) into {}
+    eg: print("the {0} and {1} fox {speed}".format("quick","brown",speed=99)) OR print("the {} and cute {} is {}".format('quick','fox','big'))
+             (Could have kept the {} empty for {0} and {1}, but had to {speed}, because need to call what we defined inside the "format")
+    Can also use it to repeat the input argument many times
+    eg: ("the {0} and cute {0} is {0}".format('quick'))
+
+- "txt {number:.c} txt".format(number) : Displays "c" sigfigs in "number"
+
+- f"text...{var}...text \n" : Allows you to insert any variable in {} that exists within a text
+
+- f"text...{number:.c}...text \n" : Displays "c" sigfigs in "number"
+
+- python3 -m venv py3 : Creates a new "venv" with name "py3"
+
+- source py3/bin/activate : Activates the "py3" virtual environment
+
+- pip commands:
+  install:                     Install packages.
+  download:                    Download packages.
+  uninstall:                   Uninstall packages.
+  freeze:                      Output installed packages in requirements format.
+  inspect:                     Inspect the python environment.
+  list:                        List installed packages.
+  show:                        Show information about installed packages.
+  check:                       Verify installed packages have compatible dependencies.
+  config:                      Manage local and global configuration.
+  search:                      Search PyPI for packages.
+  cache:                       Inspect and manage pip's wheel cache.
+  index:                       Inspect information available from package indexes.
+  wheel:                       Build wheels from your requirements.
+  hash:                        Compute hashes of package archives.
+  completion:                  A helper command used for command completion.
+  debug:                       Show information useful for debugging.
+  help:                        Show help for commands.
+
+- x % y : Gives the remainder, that is yet to be divided (undivided) by "y" (break up x into 2 numbers, one divisible by y, and the other is not. The other one is the remainder)
+
+- x // y : How many times can "y" go into "x" without leaving a decimal/fraction behind
+
+- str(x) : Converts "x" into type string
+
+- int('#') : Converts '#' into type integer
+
+- float('#') : Converts '#' into type float
+
+- x.(__) : Shows the different functions/operations that can be applied on "x"
+
+- len(x) : Displays the length of strings, list, tuple, etc.
+
+- "\n" + str(a) : Shifts "a" into next row : OR : f"\n{a}"
+
+- import platform; print(platform.uname()) : Previews PC specs
+
+- del(x) : Deletes variable "x" from workspace
+
+- range(i, f, s) : "i" = initial, "f" = final, "s" = step size, (can be negative)
+
+- list(x) : Makes a list out of "x" [string or range(numbers)]
+
+- zip(x, y) (Where "x" and "y" are tuples/lists of elements) : Combines element wise from list "x" and matches it with its corresponding element from list "y"
+
+- list(zip(x,y)) : Creates a list that contains tuples of matched elements from lists x, y respectively --> [(x1, y1), (x2, y2), ...]
+
+- for a, b in zip(x, y): : Multiplies the first element in list "x" with the first element in list "y", then adds the result into "value", repeats for every element in lists x, y
+    value += a * b        :
+
+- list(enumerate(x)) : Creates a tuple within a list, that assigns an index to each component in list "x"; thus tuple inside the list --> [(0, x1), (1, x2), ...]
+
+- pip install --upgrade pip : Upgrades pip package (All package installations and updates are to be executed in the Terminal)
+
+- curl http://example.org/picture.jpg -O picture.jpg  :  Used to download files over the internet (via links), where "-O" is used to specify the desired file output (to be downloaded)
+
+- deactivate  :  To simply deactivate the current virtual environment
+
+- conda info  :  Shows the current version of conda/anaconda/python and conda's directory/path
+    (Conda works on your command-line interface)
+    (Navigator is a desktop graphical)
+    (They both have similar functions. However, conda acts on the command-line prompt, while navigator is a graphical user interface (GUI)
+    (Conda is a packaging tool and installer that aims to do more than what pip does; it handles library dependencies OUTSIDE the Python packages, as well as the Python packages themselves)
+    (Pip installs Python packages, whereas conda installs packages which may contain software written in ANY language (C or C++)!)
+    (Your installed packages are located in the default environment called (base), which was created automatically when you installed Anaconda) --> (An environment is a collection of packages or data science tools)
+
+- conda env list  :  Shows a list of all the environments created on your machine (The one with * indicates current environment)
+
+- conda create --name py39 python=3.9  : Creates a new conda virtual environment with the name "py39"
+
+- conda env remove --name py39  : Removes the specified conda environment
+
+- pip install pip-review  :  A package that is used to update all the packages installed via pip package installer (conda doesn't update packages installed via pip and vice-versa)
+
+- pip-review --auto  :  Update all the packages installed via pip at once
+
+- pip freeze > requirements.txt  :  Used to create a ".txt" file that contains all the installed packages on the current conda environment and saves it as "requirements.txt"
+
+- pip freeze | awk -F '==' '{print $1}' > installed_packages.txt  :  Creates a ".txt" file containing a list of all installed Python packages without their versions
+    The awk command processes the output of "pip freeze" line by line. The "-F" option sets the field separator to "==", and
+    "{print $1}" prints the first field (i.e., the package name) from each line.
+
+- pip install -r requirements.txt  :  Used to install all packages specified in "requirements.txt" into current active conda environment
+
+- conda list anaconda  :  Shows the current version of anaconda package distributor (a distribution is a pre-built and pre-configured collection of packages)
+
+- conda list conda :  Shows in which directory on your machine is conda/anaconda installed
+
+- conda update --all  :  Updates all packages installed within your current environment
+
+- conda update -n base -c defaults conda  :  To update the conda package ("-n": "--name", "-c": "--channel", "-f": "--file")
+
+- conda   torchvision==0.11.3 cudatoolkit=11.3 -c pytorch -c conda-forge  :  To install pytorch and its relatives
+
+- conda update anaconda  :  "Anaconda" is a python package distributor built for data science (updating Anaconda can actually DOWNGRADE the currently installed packages! https://gist.github.com/ijstokes/45605149213e1630e928d8ff4cbdbe5f)
+
+- conda init powershell  :  Used to fix any conda environments in "conda env list" (and conda not activating)
+
+- conda clean -all  :  Removes unused packages and cleans up cache memory from environments
+
+- conda update python  :  Updates python IN your conda environment
+
+- conda install <pkg>==<version>  :  Used to install a specific version of a package (older or newer)
+
+- pip install <pkg>  :  Used to install a package *in the conda environment (base)*, using the "pip" package installer --> (We can add <pkg>=<version> if we wanted to install a specific version of that package)
+
+- pip install opencv-python | THEN | pip install opencv-python-headless  :  Used to install "OpenCV" in the conda environment
+
+- CTRL + C  :  To abort operation in Terminal
+
+- x != y : "x" not equal "y"
+
+- input('Enter Something into this box: ') : Allows you to enter something
+
+- ' ___ '.join(list) : Combines the strings (the elements HAVE to be strings) in a list together, and separates them by ' ___ '
+    eg: L1 = ['dog', 'cat', 'bat', 'bear'] --> ' and '.join(L1) --> 'dog and cat and bat and bear'
+
+- min(list), max(list) : Exactly what you think they'd do
+
+- shuffle(list) : Shuffles a list (it is an inplace function, not a generator, meaning it will affect the original list)
