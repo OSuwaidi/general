@@ -10,9 +10,9 @@ x = 50  # "x" here is a GLOBAL variable (Global assignment)
 
 
 def test1():
-    x = 40  # "x" here is a LOCAL variable to "test1", but is an ENCLOSED local variable to "test2"
+    x = 40  # "x" here is a LOCAL variable to "test1", but is an ENCLOSED local variable (from the "enclosing scope") to "test2"
 
-    def test2():
+    def test2():  # closure (inner function)
         x = 30  # "x" here is a LOCAL variable to "test2"
         print(x)
     test2()
